@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import './header.scss';
 
 function Header() {
     const [header, setHeader] = useState(false);
@@ -21,11 +22,11 @@ function Header() {
     if (header === false) return null;
 
     return (
-        <div className="header">
+        <div className="header-container">
 
-            <h2>{header.title} {header.id}</h2>
+            <h2>{header.title} #{header.id}</h2>
 
-            <div>
+            <div className="header-container__content">
                 <table>
                     <tbody>
                         <tr>
@@ -59,20 +60,20 @@ function Header() {
                             </td>
                         </tr>
                         <tr>
-                            <td>Inclui café da manhã</td>
+                            <td>Inclui café <br/> da manhã</td>
                             <td>{header.accountabilityExtraInfo.amountOfPeople === null ? ' Não' : ' Sim'}</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div>
+                <div className="header-container__content--cost-analysis">
                     <form>
                         <label>Atribuir analista:</label>
-                        <input type='text'></input>
+                        <input type='text' id="analyst"></input>
                     </form>
 
-                    <span>Centro de Custo</span>
-                    <span>{header.costCenters[0].percentage}% -  </span>
+                    <span>Centro de Custo</span><br/>
+                    <span>{header.costCenters[0].percentage}% - {header.costCenters[0].name} </span>
                 </div>
             </div>
         </div>

@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import './timeline.scss';
+import logo from './../../assets/img/status.png';
+
+import TimelineItemDetail from './timelineItemDetail';
 
 function Timeline() {
+    
     const [timeline, setTimeline] = useState(false);
 
     const getTimeline = async () => {
@@ -21,34 +26,45 @@ function Timeline() {
     if (timeline === false) return null;
 
     return (
-        <div className="timeline">
+        <div className="timeline-container">
             {
-                timeline.map((item) => {
-                    return (
-                        <table key={item.id}>
+                timeline.map(item => item.expenseId !== undefined ?
+                    <div className="timeline-container__item" key={item.id}>
+                        <table>
                             <tbody> 
                                 <tr>
-                                    <td></td>
-                                    <td>TIPO</td>
-                                    <td>VALOR</td>
-                                    <td>OBSERVAÇÃO</td>
-                                    <td>STATUS</td>
-                                </tr>
-                                <tr>
                                     <td>
-                                        {new Intl.DateTimeFormat("en-GB").format(item.cardDate)}
+                                        <img src={logo} alt="Logo" /><br/>
+                                        {new Intl.DateTimeFormat("en-GB").format(item.invoiceDate)}
                                     </td>
-                                    <td></td>
-                                    <td>{item.currencySymbol} {item.amountTotal}</td>
-                                    <td>{item.notes}</td>
-                                    <td>{item.status}</td>
+                                    <td>
+                                        <span className="item-title">TIPO</span>
+                                        <span></span>
+                                    </td>
+                                    <td>
+                                        <span className="item-title">VALOR</span>
+                                        {item.currencySymbol} {item.amountTotal}
+                                    </td>
+                                    <td>
+                                        <span className="item-title">OBSERVAÇÃO</span>
+                                        {item.notes}
+                                    </td>
+                                    <td>
+                                        <span className="item-title">STATUS</span>
+                                        {item.status}
+                                    </td>
+                                    <td>
+                                        <span>Ver nota fiscal</span>
+                                    </td>
                                 </tr>
                             </tbody>
-                    </table>
-                    ) 
-                })
-            }
+                        </table> 
 
+                        <TimelineItemDetail imgUrl={item.resourceUrl} />
+                    </div>
+                    : null
+                )
+            }
         </div>
     );
 }

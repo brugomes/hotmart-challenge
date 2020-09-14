@@ -1,0 +1,58 @@
+@import './../../assets/scss/mixins';
+
+.header-container {
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    margin: 15px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    @include border-radius(5px);
+    background: #01D0E0;
+    color: #fff;
+
+    h2 {
+        margin: 0 0 15px;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+
+        table {
+            tr td {
+                padding: 5px 10px 5px 0;
+
+                &:first-child {
+                    width: 100px;
+                    
+                    text-align: right;
+                } 
+
+                &:last-child {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &--cost-analysis {
+            height: 150px;
+            border-left: 2px solid #fff;
+            padding-left: 15px;
+
+            form {
+                margin: 30px 0;
+    
+                input {
+                    display: block;
+                    padding: 6px;
+                    @include border-radius(3px);
+                    background: #fff;
+                    outline: 0;
+                    border: 1px solid #fff;
+                    color: #909090;
+                }
+            }
+        }
+    }
+}

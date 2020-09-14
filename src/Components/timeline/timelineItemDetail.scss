@@ -1,0 +1,13 @@
+@import './../../assets/scss/mixins';
+
+.item-detail {
+    width: 100%;
+    background: #878787;
+    @include border-radius(5px);
+
+    img {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+}
