@@ -30,7 +30,7 @@ function Header() {
                 <table>
                     <tbody>
                         <tr>
-                            <td>Nome:</td>
+                            <td>Nome</td>
                             <td>{header.collaborator.name}</td>
                         </tr>
                         <tr>
@@ -69,10 +69,10 @@ function Header() {
                 <div className="header-container__content--cost-analysis">
                     <form>
                         <label>Atribuir analista:</label>
-                        <input type='text' id="analyst"></input>
+                        <input type='text' id="analyst" placeholder="Atribuir analista"></input>
                     </form>
 
-                    <span>Centro de Custo</span><br/>
+                    <span>Centro de Custo</span>
                     <span>{header.costCenters[0].percentage}% - {header.costCenters[0].name} </span>
                 </div>
             </div>

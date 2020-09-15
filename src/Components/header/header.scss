@@ -1,18 +1,21 @@
 @import './../../assets/scss/mixins';
+@import './../../assets/scss/fonts';
 
 .header-container {
     width: 100%;
     height: auto;
     max-width: 1200px;
     margin: 15px auto;
-    padding: 20px;
+    padding: 25px 48px;
     box-sizing: border-box;
-    @include border-radius(5px);
-    background: #01D0E0;
+    @include border-radius(12px);
+    background-image: linear-gradient(to right, #00d7ce 3%, #00c5fc);
     color: #fff;
 
     h2 {
         margin: 0 0 15px;
+        font-size: 20px;
+        font-family: $font-bold;
     }
 
     &__content {
@@ -21,36 +24,60 @@
 
         table {
             tr td {
-                padding: 5px 10px 5px 0;
+                padding: 0 20px 5px 0;
+                font-size: 14px;
 
                 &:first-child {
                     width: 100px;
-                    
                     text-align: right;
+                    font-family: $font-regular;
                 } 
 
                 &:last-child {
-                    font-weight: bold;
+                    font-family: $font-bold;
                 }
             }
         }
 
         &--cost-analysis {
+            width: 250px;
             height: 150px;
-            border-left: 2px solid #fff;
-            padding-left: 15px;
+            border-left: 1px solid #b9dcff;;
+            padding: 30px 0 0 15px;
 
             form {
-                margin: 30px 0;
+                margin: 0 0 30px 0;
+
+                label {
+                    display: block;
+                    margin-bottom: 4px;
+                    font-size: 14px;
+                    font-family: $font-regular;
+                }
     
                 input {
+                    width: 100%;
                     display: block;
-                    padding: 6px;
-                    @include border-radius(3px);
+                    padding: 6px 8px;
+                    @include border-radius(5px);
                     background: #fff;
                     outline: 0;
                     border: 1px solid #fff;
                     color: #909090;
+                }
+            }
+
+            span {
+                display: block;
+
+                &:nth-of-type(1) {
+                    font-size: 13px;
+                    font-family: $font-regular;
+                } 
+
+                &:nth-of-type(2){
+                    font-size: 12px;
+                    font-family: $font-bold;
                 }
             }
         }
