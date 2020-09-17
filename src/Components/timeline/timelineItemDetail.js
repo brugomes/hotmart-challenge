@@ -5,6 +5,7 @@ import iconView from './../../assets/img/icon-view.jpg';
 import iconEdit from './../../assets/img/icon-edit.jpg';
 import iconDownload from './../../assets/img/icon-download.jpg';
 
+import TimelineItemForm from './timelineItemForm';
 
 class TimelineItemDetail extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class TimelineItemDetail extends React.Component {
         }
         this.collapse = this.collapse.bind(this);
     }
+
     collapse(e) {
         this.setState({ open: !this.state.open })
     }
@@ -61,6 +63,8 @@ class TimelineItemDetail extends React.Component {
                         <img src={this.props.item.resourceUrl} alt='' />
                     </div>
                 ) : null}
+
+                <TimelineItemForm data={this.props.item} />
             </div>
         )
     }
