@@ -27,7 +27,7 @@ function Timeline() {
         <div className="timeline-container">
             {   
                 timeline.map(item => item.expenseId !== undefined ?
-                    <div className="timeline-container__item" key={item.id} >
+                    <div className="timeline-container__item" key={item.id}>
                         <TimelineItemDetail item={item} />
                     </div>
                     : null

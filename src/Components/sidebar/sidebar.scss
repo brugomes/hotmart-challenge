@@ -1,0 +1,151 @@
+@import './../../assets/scss/mixins';
+@import './../../assets/scss/fonts';
+
+.sidebar {
+    width: 390px;
+    height: auto;
+
+    &__item {
+        width: 100%;
+        height: auto;
+        background: #fff;
+        padding: 30px 0 0 0;
+        margin-bottom: 15px;
+
+        .status {
+            width: 320px;
+            height: 86px;
+            margin: 0 auto 15px;
+            @include border-radius(6px);
+
+            &.OPEN {
+                border: solid 1px #6b7480;
+                background: #f0f3f7;
+
+                h5 {
+                    margin: 10px 0;
+                    font-family: $font-regular;
+                    font-size: 16px;
+                    font-weight: initial;
+                    text-align: center;
+                    color: #053d4e;
+                }
+
+                span {
+                    display: block;
+                    font-family: $font-bold;
+                    font-size: 24px;
+                    text-align: center;
+                    color: #053d4e;
+                }
+            }
+        }
+
+        .amount-approved {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px 0 20px 20px;
+            border-bottom: 1px solid #f0f3f7;
+
+            h5 {
+                margin: 0 auto 15px;
+                font-family: $font-regular;
+                font-size: 14px;
+                font-weight: initial;
+                color: #6b7480;
+                text-align: center;
+            }
+
+            span {
+                display: block;
+                margin: 0 auto;
+                font-family: $font-bold;
+                font-size: 32px;
+                color: #053d4e;
+                text-align: center;
+            }
+        }
+
+        .balance {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            
+            img {
+                align-self: center;
+                margin-right: 5px;
+            }
+
+            > div { 
+                display: flex;
+                padding: 0 15px;
+
+                &:first-child {
+                    border-right: solid 1px #f0f3f7;
+                }
+                
+                span {
+                    display: block;
+                    font-family: $font-regular;
+    
+                    &:first-child {
+                        font-size: 12px;
+                        color: #9ea4ac;
+                    }
+    
+                    &:last-child {
+                        font-size: 16px;
+                        color: #32363b;
+                    }
+                }
+            }
+        }
+
+        .statement {
+            padding: 20px;
+
+            h5 {
+                padding-bottom: 6px;
+                margin-bottom: 10px;
+                border-bottom: solid 1px #f0f3f7;
+                font-family: $font-bold;
+                font-size: 14px;
+                color: #353a40;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            .title {
+                color: #053d4e;
+                font-size: 12px;
+                font-family: $font-regular;
+            }
+
+            .description {
+                span {
+                    display: block;
+
+                    &:first-child {
+                        font-size: 14px;
+                        color: #053d4e;
+                        font-family: $font-bold;
+                    }
+
+                    &:last-child {
+                        font-size: 12px;
+                        color: #9ea4ac;
+                        font-family: $font-regular;
+                    }
+                }
+            }
+
+            .amount {
+                font-size: 14px;
+                color: #053d4e;
+                font-family: $font-bold;
+            }
+        }
+    }
+}

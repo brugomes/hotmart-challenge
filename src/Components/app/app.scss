@@ -1,0 +1,17 @@
+.app {
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    box-sizing: border-box;
+
+    > div{
+        &:first-child {
+            flex: 70%;
+        }
+
+        &:last-child {
+            flex: 30%;
+            margin-left: 15px;
+        }
+    }
+}
