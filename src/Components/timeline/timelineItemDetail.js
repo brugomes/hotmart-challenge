@@ -11,13 +11,19 @@ class TimelineItemDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false
+            openDetail: false,
+            openEdit: false,
+            type: ''
         }
-        this.collapse = this.collapse.bind(this);
+        this.collapseEdit = this.collapseEdit.bind(this);
+        this.collapseDetail = this.collapseDetail.bind(this);
     }
 
-    collapse(e) {
-        this.setState({ open: !this.state.open })
+    collapseEdit(e, type) {
+        this.setState({ openEdit: !this.state.openEdit})
+    }
+    collapseDetail(e, type) {
+        this.setState({ openDetail: !this.state.openDetail})
     }
 
     componentDidUpdate() {
@@ -48,23 +54,34 @@ class TimelineItemDetail extends React.Component {
                                 <div className={'item-status--' + this.props.item.status}><span>{this.props.item.status}</span></div>
                             </td>
                             <td>
-                                <span className="item-options" onClick={(e) => this.collapse(e)}>
+                                <span className="item-options" onClick={(e) => this.collapseDetail(e)}>
                                     <img src={iconView} alt='' />
-                                    {this.state.open ? 'Fechar despesa' : 'Visualizar despesa'}</span>
-                                <span className="item-options"><img src={iconEdit} alt='' />Editar</span>
-                                <a href={this.props.item.resourceUrl} download className="item-options"><img src={iconDownload} alt='' />Baixar</a>
+                                    {this.state.openDetail ? 'Fechar despesa' : 'Visualizar despesa'}
+                                </span>
+
+                                <span className="item-options" onClick={(e) => this.collapseEdit(e, ('form'))}>
+                                    <img src={iconEdit} alt='' />
+                                    {this.state.openEdit ? 'Cancelar edição' : 'Editar'}
+                                </span>
+
+                                <a href={this.props.item.resourceUrl} download className="item-options">
+                                    <img src={iconDownload} alt='' />Baixar
+                                </a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                {this.state.open ? (
+                {this.state.openEdit ?  (
+                    <TimelineItemForm data={this.props.item} />
+                ) : !this.state.openEdit}
+
+                {this.state.openDetail ? (
                     <div className="img-detail" >
                         <img src={this.props.item.resourceUrl} alt='' />
                     </div>
-                ) : null}
-
-                <TimelineItemForm data={this.props.item} />
+                ) : !this.state.openDetail}
+                
             </div>
         )
     }

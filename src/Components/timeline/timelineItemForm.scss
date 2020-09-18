@@ -2,7 +2,8 @@
 @import './../../assets/scss/fonts';
 
 .timeline-item-form {
-
+    margin-bottom: 20px;
+    
     h2 {
         font-size: 20px;
         font-family: $font-bold;
@@ -75,7 +76,6 @@
                 color: #fff;
                 background: #51c1c3;
                 border: 1px solid #43a1a2;
-                margin-left: 10px;
             }
         }
     }

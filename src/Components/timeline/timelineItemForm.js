@@ -5,8 +5,6 @@ import './timelineItemForm.scss';
 
 function TimelineItemForm(props){
 
-    console.log(props)
-
     const { register, handleSubmit } = useForm();
 
     function onSubmit(data) {
@@ -44,7 +42,6 @@ function TimelineItemForm(props){
                         <input type="text" name="invoiceDate" defaultValue={new Intl.DateTimeFormat("en-GB").format(props.data.invoiceDate)} ref={register} />
                     </div>
                     
-                    <button type="submit" className="btn-cancel">Cancel</button>
                     <button type="submit" className="btn-save">Salvar</button>
                 </form>   
             </div>
